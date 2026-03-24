@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 92%;
+    max-width: 1150px;
+    margin: 30px auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    color: #666;
+    margin-top: 5px;
+}
+
+.active-person-box {
+    background-color: white;
+    padding: 14px 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    min-width: 220px;
+}
+
+.small-text {
+    color: #666;
+    font-size: 13px;
+}
+
+.main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: white;
+    background-color: #005bbb;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.main-nav a:hover {
+    background-color: #004799;
+}
+
+.card {
+    background-color: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+form {
+    margin-top: 10px;
+}
+
+input, select {
+    padding: 9px 10px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    width: 100%;
+    max-width: 380px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #005bbb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 10px 16px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #004799;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: white;
+}
+
+th, td {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #eef3f8;
+}
+
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.flash-item {
+    background-color: #eef4ff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.logout-form {
+    margin-top: 12px;
+}
+
+.logout-button {
+    background-color: #b22222;
+}
+
+.logout-button:hover {
+    background-color: #8f1b1b;
+}
+
+.login-card {
+    max-width: 450px;
+    margin: 60px auto;
+}
+
+.link-button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #005bbb;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.link-button:hover {
+    background-color: #004799;
+}
