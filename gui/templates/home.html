@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Home</h2>
+    <p>
+        This GUI demonstrates the banking database project. It shows how ownership,
+        account access, transactions, draft transfers, booking, and interest calculation work together.
+    </p>
+
+    <ul>
+        <li>See which accounts the logged-in person can access</li>
+        <li>See whether access is owner access or granted access</li>
+        <li>See whether the person can only view or can also transfer</li>
+        <li>Create draft transfers from accounts with transfer permission</li>
+        <li>Book draft transfers using a stored procedure</li>
+        <li>Show account statements with balance and transactions</li>
+        <li>Calculate monthly interest using a stored procedure</li>
+    </ul>
+</div>
+{% endblock %}

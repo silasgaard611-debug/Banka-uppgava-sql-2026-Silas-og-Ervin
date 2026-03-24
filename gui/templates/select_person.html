@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Select Active Person</h2>
+    <p>
+        This simulates who is currently using the bank system. It is used instead of a full login system,
+        so the GUI can demonstrate ownership and permissions.
+    </p>
+
+    <form method="POST">
+        <label>Select person:</label><br>
+        <select name="person_ptal" required>
+            <option value="">Choose person</option>
+            {% for person in people %}
+                <option value="{{ person[0] }}">
+                    {{ person[1] }} {{ person[2] }} ({{ person[0] }})
+                </option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <button type="submit">Set Active Person</button>
+    </form>
+</div>
+{% endblock %}

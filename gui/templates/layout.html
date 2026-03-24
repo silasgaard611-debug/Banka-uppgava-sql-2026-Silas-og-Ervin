@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bank GUI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <header class="page-header">
+        <div>
+            <h1>Bank Database GUI</h1>
+            <p class="subtitle">Demonstration of the banking database project</p>
+        </div>
+
+        {% if active_person %}
+        <div class="active-person-box">
+            <strong>Active person:</strong><br>
+            {{ active_person[1] }} {{ active_person[2] }}<br>
+            <span class="small-text">{{ active_person[0] }}</span>
+
+            <form method="POST" action="{{ url_for('logout') }}" class="logout-form">
+                <button type="submit" class="logout-button">Log Out</button>
+            </form>
+        </div>
+        {% endif %}
+    </header>
+
+    {% if active_person %}
+        {% if is_admin %}
+        <nav class="main-nav">
+            <a href="{{ url_for('admin_dashboard') }}">Admin Dashboard</a>
+            <a href="{{ url_for('interest') }}">Interest</a>
+        </nav>
+        {% else %}
+        <nav class="main-nav">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('my_accounts') }}">My Accounts</a>
+            <a href="{{ url_for('create_draft_transfer') }}">Create Draft Transfer</a>
+            <a href="{{ url_for('show_draft_transfers') }}">Draft Transfers</a>
+            <a href="{{ url_for('account_statement') }}">Account Statement</a>
+            <a href="{{ url_for('interest') }}">Interest</a>
+        </nav>
+        {% endif %}
+    {% endif %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flash-messages">
+            {% for category, message in messages %}
+                <li class="flash-item"><strong>{{ category }}:</strong> {{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

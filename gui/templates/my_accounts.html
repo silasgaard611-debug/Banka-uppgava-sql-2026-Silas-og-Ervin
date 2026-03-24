@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>My Accessible Accounts</h2>
+    <p>
+        This page shows which accounts the active person can access, and whether the access is
+        because they own the account or because access was granted through the account access table.
+    </p>
+
+    <table>
+        <tr>
+            <th>Account</th>
+            <th>Owner</th>
+            <th>Account Type</th>
+            <th>Balance</th>
+            <th>Allowed Overdraft</th>
+            <th>Can View</th>
+            <th>Can Transfer</th>
+            <th>Access Source</th>
+        </tr>
+
+        {% for account in accounts %}
+        <tr>
+            <td>{{ account[0] }}</td>
+            <td>{{ account[1] }}</td>
+            <td>{{ account[2] }}</td>
+            <td>{{ account[3] }}</td>
+            <td>{{ account[4] }}</td>
+            <td>{{ account[5] }}</td>
+            <td>{{ account[6] }}</td>
+            <td>{{ account[7] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

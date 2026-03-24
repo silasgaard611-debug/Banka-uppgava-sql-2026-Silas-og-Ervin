@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Account Statement</h2>
+    <p>
+        The active person can only select and view accounts where they have view permission.
+    </p>
+
+    <form method="POST">
+        <label>Select account:</label><br>
+        <select name="account_number" required>
+            <option value="">Choose account</option>
+            {% for account in accounts %}
+                <option value="{{ account[0] }}"
+                {% if selected_account == account[0] %}selected{% endif %}>
+                    {{ account[0] }} - {{ account[2] }} - Balance: {{ account[3] }}
+                </option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <button type="submit">Show Statement</button>
+    </form>
+</div>
+
+{% if account_info %}
+<div class="card">
+    <h3>Account Information</h3>
+    <p><strong>Account number:</strong> {{ account_info[0] }}</p>
+    <p><strong>Current balance:</strong> {{ account_info[1] }}</p>
+    <p><strong>Allowed overdraft:</strong> {{ account_info[2] }}</p>
+    <p><strong>Account type:</strong> {{ account_info[3] }}</p>
+</div>
+{% endif %}
+
+{% if statement_rows %}
+<div class="card">
+    <h3>Transactions</h3>
+    <table>
+        <tr>
+            <th>Account</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Amount</th>
+        </tr>
+
+        {% for row in statement_rows %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+{% endblock %}

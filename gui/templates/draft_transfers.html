@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Draft Transfers</h2>
+    <p>
+        This page shows draft transfers related to accounts that the active person can access.
+    </p>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Action</th>
+        </tr>
+
+        {% for draft in draft_transfers %}
+        <tr>
+            <td>{{ draft[0] }}</td>
+            <td>{{ draft[1] }}</td>
+            <td>{{ draft[2] }}</td>
+            <td>{{ draft[3] }}</td>
+            <td>{{ draft[4] }}</td>
+            <td>{{ draft[5] }}</td>
+            <td>
+                {% if draft[3] == 'NEW' %}
+                <form method="POST" action="{{ url_for('book_transfer', draft_transfer_id=draft[0]) }}">
+                    <button type="submit">Book</button>
+                </form>
+                {% else %}
+                Booked
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
