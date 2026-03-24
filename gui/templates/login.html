@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card login-card">
+    <h2>Log In</h2>
+    <p>
+        Enter a P-tal to log into the demo bank system.
+    </p>
+
+    <form method="POST">
+        <label>P-tal:</label><br>
+        <input type="text" name="p_tal" placeholder="Example: 110580-126" required><br><br>
+
+        <button type="submit">Log In</button>
+    </form>
+</div>
+{% endblock %}
