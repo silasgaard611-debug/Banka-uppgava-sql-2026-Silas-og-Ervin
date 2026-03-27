@@ -2,7 +2,6 @@
 -- These procedures handle the main business logic in the banking system
 
 
--- =========================================================
 -- Procedure 1: book_draft_transfer
 -- Books a draft transfer by:
 -- 1. Checking that the draft transfer exists and is NEW
@@ -10,7 +9,6 @@
 -- 3. Inserting two transaction records
 -- 4. Updating both account balances
 -- 5. Marking the draft transfer as BOOKED
--- =========================================================
 
 CREATE OR REPLACE PROCEDURE book_draft_transfer (
     p_draft_transfer_id IN NUMBER
@@ -129,9 +127,8 @@ EXCEPTION
             'Draft transfer or related account/transaction type was not found.');
 END;
 /
-    
 
--- =========================================================
+    
 -- Procedure 2: calculate_monthly_interest
 -- Calculates monthly interest for all accounts on a chosen date by:
 -- 1. Reading the current account balance
@@ -145,7 +142,6 @@ END;
 -- - Loan accounts use DebitInterest if balance is negative
 -- - The procedure skips accounts that already have a monthly interest
 --   transaction on the same date
--- =========================================================
 
 CREATE OR REPLACE PROCEDURE calculate_monthly_interest (
     p_to_date IN DATE
